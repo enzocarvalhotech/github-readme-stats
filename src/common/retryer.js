@@ -41,7 +41,7 @@ const retryer = async (fetcher, variables, retries = 0) => {
     let response = await fetcher(
       variables,
       // @ts-ignore
-      process.env[`PAT_${retries + 1}`],
+      process.env[`PAT_${retries + 1}`]?.trim(),
       // used in tests for faking rate limit
       retries,
     );
